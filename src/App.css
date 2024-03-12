@@ -1,0 +1,30 @@
+.group__title {
+  cursor: pointer;
+}
+.group__title:hover {
+  text-decoration: underline;
+}
+.group__members {
+  height: 30px;
+  position: relative;
+  display: flex;
+}
+.group__friends {
+  margin-left: 0.3em;
+  cursor: pointer;
+}
+.group__friend-list {
+  margin-left: 5px;
+  display: flex;
+  gap: 2px;
+}
+.group__friend-list > div {
+  cursor: pointer;
+}
+.group__current-friend {
+  margin-left: 5px;
+  border-radius: 5px;
+  padding: 5px 4px;
+  background-color: black;
+  color: whitesmoke;
+}
