@@ -63,31 +63,33 @@ function App() {
   }, [])
 
   useEffect(() => {
-    let filteredData = [...mockData];
-    if (filters.type !== 'Все') {
-      if (filters.type === 'Закрытая') {
-        filteredData = filteredData.filter((group) => group.closed === true)
-      } else {
-        filteredData = filteredData.filter((group) => group.closed === false)
+    if (groupList.length) {
+      let filteredData = [...mockData];
+      if (filters.type !== 'Все') {
+        if (filters.type === 'Закрытая') {
+          filteredData = filteredData.filter((group) => group.closed === true)
+        } else {
+          filteredData = filteredData.filter((group) => group.closed === false)
+        }
       }
-    }
-    if (filters.color !== 'Любой') {
-      filteredData = filteredData.filter((group) => group.avatar_color === filters.color)
-    }
-    if (filters.friends !== 'Все') {
-      if (filters.friends === 'С друзьями') {
-        filteredData = filteredData.filter((group) => typeof group.friends !== 'undefined')
-      } else {
-        filteredData = filteredData.filter((group) => typeof group.friends === 'undefined')
-        console.log(filteredData);
+      if (filters.color !== 'Любой') {
+        filteredData = filteredData.filter((group) => group.avatar_color === filters.color)
       }
-    }
-    if (filteredData.length) {
-      setError('');
-      setGroupList(filteredData);
-    } else {
-      setError('Ничего не найдено')
-      setGroupList([]);
+      if (filters.friends !== 'Все') {
+        if (filters.friends === 'С друзьями') {
+          filteredData = filteredData.filter((group) => typeof group.friends !== 'undefined')
+        } else {
+          filteredData = filteredData.filter((group) => typeof group.friends === 'undefined')
+          console.log(filteredData);
+        }
+      }
+      if (filteredData.length) {
+        setError('');
+        setGroupList(filteredData);
+      } else {
+        setError('Ничего не найдено')
+        setGroupList([]);
+      }
     }
   }, [filters])
 
