@@ -35,7 +35,7 @@ const GRADIENT_COLORS = {
 
 function App() {
   const [activePanel, setActivePanel] = useState('communities');
-  const [showFriends, setShowFriends] = useState<{id: number, friends: UserI[] } | null>(null);
+  const [showFriends, setShowFriends] = useState<{id: number, friends: UserI[] | undefined } | null>(null);
   const [currentFriend, setCurrentFriend] = useState<UserI | null>(null);
   const [error, setError] = useState('');
   const [groupList, setGroupList] = useState<GroupI[]>([]);
